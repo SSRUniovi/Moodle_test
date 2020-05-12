@@ -48,6 +48,10 @@ check_fileServerType_param $fileServerType
 
 {
   # make sure the system does automatic update
+  ### Añadido UniOvi
+  sudo apt install software-properties-common
+  sudo add-apt-repository ppa:nginx/stable -y
+  ### Añadido UniOvi
   sudo apt-get -y update
   sudo apt-get -y install unattended-upgrades
 
