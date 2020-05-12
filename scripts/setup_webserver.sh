@@ -658,4 +658,4 @@ EOF
   systemctl daemon-reload
   service varnish restart
 
-}  > /tmp/setup.log
+}  > /tmp/setup_new.log
