@@ -54,6 +54,20 @@ check_fileServerType_param $fileServerType
     sudo add-apt-repository ppa:ondrej/php -y
     sudo apt-get -y update
     #sudo apt-get -y install unattended-upgrades
+
+  ### Cambios UniOvi para incrementar el número máximo de ficheros abiertos
+  # Configuro sysctl.conf y lo cargo
+  cat <<EOF >> /etc/sysctl.conf
+fs.file-max=100000
+EOF
+## Ahora hacemos el cambio en limits.conf
+  cat <<EOF >> /etc/security/limits.conf
+  nginx soft nofile 10000
+  nginx hard nofile 30000
+EOF
+##Forzamos la carga de los parámetros
+sudo sysctl -p
+  #FIn de cambios sysctl
   ### Cambios UniOvi
 
   # install pre-requisites
