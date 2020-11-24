@@ -62,8 +62,8 @@ fs.file-max=100000
 EOF
 ## Ahora hacemos el cambio en limits.conf
   cat <<EOF >> /etc/security/limits.conf
-  nginx soft nofile 10000
-  nginx hard nofile 30000
+  www-data soft nofile 10000
+  www-data hard nofile 30000
 EOF
 ##Forzamos la carga de los parámetros
 sudo sysctl -p
