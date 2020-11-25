@@ -160,6 +160,8 @@ function setup_moodle_mount_dependency_for_systemd_service
     cat <<EOF > $systemdSvcOverrideFilePath
 [Unit]
 After=moodle.mount
+[Service]
+ExecStartPost=/bin/sleep 0.1
 EOF
     systemctl daemon-reload
   fi
