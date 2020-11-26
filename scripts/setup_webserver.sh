@@ -152,6 +152,7 @@ EOF
     cat <<EOF > /etc/nginx/nginx.conf
 user www-data;
 worker_processes 2;
+worker_rlimit_nofile 4096;
 pid /run/nginx.pid;
 
 events {
