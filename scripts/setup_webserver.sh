@@ -254,7 +254,7 @@ server {
           proxy_set_header X-Forwarded-Server \$host;
           proxy_set_header X-Forwarded-Proto https;
           proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-          proxy_pass http://localhost:80;
+          proxy_pass http://127.0.0.1:80;
 
           proxy_connect_timeout       3600;
           proxy_send_timeout          3600;
@@ -394,7 +394,8 @@ EOF
      # update startup script to wait for certificate in /moodle mount
      setup_moodle_mount_dependency_for_systemd_service nginx || exit 1
      # restart Nginx
-     sudo service nginx restart 
+     sudo service nginx restart
+     sudo systemctl enable nginx
    fi
 
    if [ "$webServerType" = "nginx" ]; then
