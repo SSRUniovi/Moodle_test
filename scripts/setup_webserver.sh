@@ -231,7 +231,7 @@ server {
         root ${htmlRootDir};
 	index index.php index.html index.htm;
 
-        ssl on;
+        #ssl on;
         ssl_certificate /moodle/certs/nginx.crt;
         ssl_certificate_key /moodle/certs/nginx.key;
 
