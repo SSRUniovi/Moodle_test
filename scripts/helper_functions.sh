@@ -161,6 +161,7 @@ function setup_moodle_mount_dependency_for_systemd_service
 [Unit]
 After=moodle.mount
 [Service]
+LimitNOFILE=10000
 ExecStartPost=/bin/sleep 0.1
 EOF
     systemctl daemon-reload
